@@ -9,9 +9,21 @@ error_reporting(E_ALL);
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin:*');
 
+
 require_once('./controller/UserController.php');
+require_once('./controller/RegisterController.php');
+require_once('./controller/LoginController.php');
 
-$user = new UserController();
+/**
+ * sehr schlecht code
+ */
 
-$result = $user->register();
-echo json_encode($result);
+if(isset($_GET['url']) && $_GET['url'] !='')
+{
+    $request = $_GET['url'];
+    echo json_encode($request);
+}
+else
+{
+    echo json_encode('no url found , bad request');
+}

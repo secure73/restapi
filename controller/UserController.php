@@ -2,8 +2,8 @@
 
 class UserController
 {
-    public function register()
+    public function hello()
     {
-        return "successfully registeed";
+        return "Hello Dear User";
     }
 }
