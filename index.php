@@ -21,7 +21,15 @@ require_once('./controller/LoginController.php');
 if(isset($_GET['url']) && $_GET['url'] !='')
 {
     $request = $_GET['url'];
-    echo json_encode($request);
+
+    $request = trim($request);
+    $request = explode('/',$request);
+    $controller = ucfirst($request[0]).'Controller';
+    $function = $request[1];
+
+    $myController = new $controller();
+    $result = $myController->$function();
+    echo json_encode($result);
 }
 else
 {
