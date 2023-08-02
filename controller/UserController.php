@@ -2,8 +2,8 @@
 
 class UserController
 {
-    public function hello()
+    public function hello($name = null)
     {
-        return "Hello Dear User";
+        return "Hello Dear User. you name is ".$name;
     }
 }
